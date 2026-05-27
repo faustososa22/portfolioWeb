@@ -10,6 +10,21 @@
   --text-muted: #6e7681;
   --border: #1e1e1e;
   --card-bg: #111111;
+  --text-strong: #ffffff;
+  --navbar-bg: rgba(10, 10, 10, 0.92);
+}
+
+[data-theme="light"] {
+  --bg: #f9fafb;
+  --bg-alt: #f0f0f0;
+  --accent: #059952;
+  --accent-dim: #047a41;
+  --text: #333333;
+  --text-muted: #666666;
+  --border: #dedede;
+  --card-bg: #ffffff;
+  --text-strong: #0a0a0a;
+  --navbar-bg: rgba(249, 250, 251, 0.92);
 }
 
 /* ── Base ── */
@@ -29,6 +44,7 @@ body {
   color: var(--text);
   font-family: 'JetBrains Mono', monospace;
   line-height: 1.7;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ── Accent color ── */
@@ -38,10 +54,11 @@ body {
 
 /* ── Navbar ── */
 .navbar {
-  background-color: rgba(10, 10, 10, 0.92);
+  background-color: var(--navbar-bg);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
   padding: 1rem 0;
+  transition: background-color 0.3s ease;
 }
 
 .navbar-brand {
@@ -91,7 +108,7 @@ body {
 .hero-name {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-strong);
   margin-bottom: 0.75rem;
   letter-spacing: -0.02em;
 }
@@ -173,7 +190,7 @@ body {
 .section-title {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-strong);
   margin-bottom: 3rem;
   letter-spacing: -0.01em;
 }
@@ -289,6 +306,26 @@ body {
 
 .contact-link:hover {
   color: var(--accent);
+}
+
+/* ── Theme toggle ── */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 3px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: color 0.2s, border-color 0.2s;
+  margin-left: 1.5rem;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 /* ── Footer ── */
