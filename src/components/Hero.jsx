@@ -1,21 +1,32 @@
 import { useState, useEffect } from 'react'
 
-const phrases = [
-  'Backend Developer',
-  '.NET & C# Developer',
-  'Full-Stack Developer',
-  'API Builder',
-  'Problem Solver',
-]
+const KEYWORDS = ['.NET', 'C#', 'React', 'TypeScript']
 
-function Hero() {
+function highlight(text) {
+  const pattern = new RegExp(`(${KEYWORDS.map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g')
+  return text.split(pattern).map((part, i) =>
+    KEYWORDS.includes(part)
+      ? <span key={i} className="text-accent">{part}</span>
+      : part
+  )
+}
+
+function Hero({ t }) {
+  const phrases = t.hero.phrases
   const [text, setText] = useState('')
   const [phraseIndex, setPhraseIndex] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
   const [deleting, setDeleting] = useState(false)
 
   useEffect(() => {
-    const current = phrases[phraseIndex]
+    setText('')
+    setCharIndex(0)
+    setDeleting(false)
+    setPhraseIndex(0)
+  }, [phrases])
+
+  useEffect(() => {
+    const current = phrases[phraseIndex % phrases.length]
     const speed = deleting ? 50 : 100
 
     const timeout = setTimeout(() => {
@@ -36,27 +47,24 @@ function Hero() {
     }, speed)
 
     return () => clearTimeout(timeout)
-  }, [charIndex, deleting, phraseIndex])
+  }, [charIndex, deleting, phraseIndex, phrases])
 
   return (
     <section id="home" className="hero-section d-flex align-items-center">
       <div className="container">
         <div className="row">
           <div className="col-lg-8">
-            <p className="hero-greeting">// Hi, my name is</p>
+            <p className="hero-greeting">{t.hero.greeting}</p>
             <h1 className="hero-name">Fausto Martin Sosa</h1>
             <h2 className="hero-typed">
               <span className="text-accent">&gt;</span> {text}
               <span className="cursor">█</span>
             </h2>
-            <p className="hero-desc">
-              Backend developer focused on <span className="text-accent">.NET</span> and <span className="text-accent">C#</span>,
-              with hands-on experience building full-stack apps using <span className="text-accent">React</span> and <span className="text-accent">TypeScript</span>.
-            </p>
+            <p className="hero-desc">{highlight(t.hero.desc)}</p>
             <div className="hero-buttons">
-              <a href="#projects" className="btn btn-accent me-3">view projects</a>
-              <a href="#contact" className="btn btn-outline-accent me-3">contact me</a>
-              <a href="/Fausto_Sosa_CV.pdf" download className="btn btn-outline-accent">download cv</a>
+              <a href="#projects" className="btn btn-accent me-3">{t.hero.viewProjects}</a>
+              <a href="#contact" className="btn btn-outline-accent me-3">{t.hero.contactMe}</a>
+              <a href="/Fausto_Sosa_CV.pdf" download className="btn btn-outline-accent">{t.hero.downloadCV}</a>
             </div>
           </div>
         </div>

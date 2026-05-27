@@ -5,22 +5,26 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import { useTheme } from './hooks/useTheme'
+import { useLang } from './hooks/useLang'
+import { translations } from './translations'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
+  const { lang, toggleLang } = useLang()
+  const t = translations[lang]
 
   return (
     <div>
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <Navbar t={t} theme={theme} toggleTheme={toggleTheme} lang={lang} toggleLang={toggleLang} />
       <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
+        <Hero t={t} />
+        <About t={t} />
+        <Skills t={t} />
+        <Projects t={t} />
+        <Contact t={t} />
       </main>
       <footer>
-        <p>// built by <span style={{ color: 'var(--accent)' }}>Fausto Martin Sosa</span> · {new Date().getFullYear()}</p>
+        <p>// {t.footer} <span style={{ color: 'var(--accent)' }}>Fausto Martin Sosa</span> · {new Date().getFullYear()}</p>
       </footer>
     </div>
   )

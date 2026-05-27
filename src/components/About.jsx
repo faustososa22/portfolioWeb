@@ -1,27 +1,17 @@
-function About() {
+function About({ t }) {
   return (
     <section id="about" className="section">
       <div className="container">
-        <h2 className="section-title"><span className="text-accent">//</span> about_me</h2>
+        <h2 className="section-title"><span className="text-accent">//</span> {t.about.title}</h2>
         <div className="row">
           <div className="col-lg-8">
-            <p className="about-text">
-              Junior <span className="text-accent">.NET Developer</span> with full-stack experience. I build RESTful APIs
-              using <span className="text-accent">ASP.NET Core</span>, Entity Framework Core, SQL Server, and PostgreSQL —
-              including JWT auth, role-based authorization, and CI/CD with GitHub Actions.
-              On the frontend I work with <span className="text-accent">React</span> and <span className="text-accent">TypeScript</span>.
-            </p>
-            <p className="about-text">
-              I've deployed APIs to <span className="text-accent">Azure App Service</span> and I also bring real-world
-              IT support experience — user support, hardware troubleshooting, and medical systems in a healthcare environment.
-            </p>
-            <p className="about-text">
-              Based in <span className="text-accent">Cork, Ireland</span>. STAMP 4 Visa (EU-FAM) — full working rights, no sponsorship required.
-            </p>
+            <p className="about-text">{t.about.p1}</p>
+            <p className="about-text">{t.about.p2}</p>
+            <p className="about-text">{t.about.p3}</p>
             <div className="about-meta">
-              <span className="meta-item"><span className="text-accent">$</span> location: Cork, Ireland</span>
-              <span className="meta-item"><span className="text-accent">$</span> focus: .NET / React</span>
-              <span className="meta-item"><span className="text-accent">$</span> status: open to work</span>
+              <span className="meta-item"><span className="text-accent">$</span> {t.about.location}</span>
+              <span className="meta-item"><span className="text-accent">$</span> {t.about.focus}</span>
+              <span className="meta-item"><span className="text-accent">$</span> {t.about.status}</span>
             </div>
           </div>
         </div>

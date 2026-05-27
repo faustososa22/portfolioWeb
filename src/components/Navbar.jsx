@@ -1,4 +1,4 @@
-function Navbar({ theme, toggleTheme }) {
+function Navbar({ t, theme, toggleTheme, lang, toggleLang }) {
   return (
     <nav className="navbar navbar-expand-lg fixed-top">
       <div className="container">
@@ -15,10 +15,15 @@ function Navbar({ theme, toggleTheme }) {
         </button>
         <div className="collapse navbar-collapse" id="navMenu">
           <ul className="navbar-nav ms-auto align-items-center">
-            <li className="nav-item"><a className="nav-link" href="#about">about</a></li>
-            <li className="nav-item"><a className="nav-link" href="#skills">skills</a></li>
-            <li className="nav-item"><a className="nav-link" href="#projects">projects</a></li>
-            <li className="nav-item"><a className="nav-link" href="#contact">contact</a></li>
+            <li className="nav-item"><a className="nav-link" href="#about">{t.nav.about}</a></li>
+            <li className="nav-item"><a className="nav-link" href="#skills">{t.nav.skills}</a></li>
+            <li className="nav-item"><a className="nav-link" href="#projects">{t.nav.projects}</a></li>
+            <li className="nav-item"><a className="nav-link" href="#contact">{t.nav.contact}</a></li>
+            <li className="nav-item">
+              <button className="theme-toggle" onClick={toggleLang} title="Toggle language">
+                {lang === 'en' ? '[ es ]' : '[ en ]'}
+              </button>
+            </li>
             <li className="nav-item">
               <button className="theme-toggle" onClick={toggleTheme} title="Toggle theme">
                 {theme === 'dark' ? '[ light ]' : '[ dark ]'}
