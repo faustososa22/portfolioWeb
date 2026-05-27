@@ -79,7 +79,7 @@ export const translations = {
       title: 'sobre_mi',
       p1: 'Desarrollador Junior .NET con experiencia full-stack. Construyo APIs RESTful con ASP.NET Core, Entity Framework Core, SQL Server y PostgreSQL — incluyendo JWT auth, autorización por roles y CI/CD con GitHub Actions. En el frontend trabajo con React y TypeScript.',
       p2: 'Deployé APIs en Azure App Service y también tengo experiencia real en soporte IT — soporte a usuarios, diagnóstico de hardware y sistemas médicos en entornos de salud.',
-      p3: 'Basado en Cork, Irlanda. STAMP 4 Visa (EU-FAM) — derechos laborales completos, sin necesidad de sponsorship.',
+      p3: 'Vivo en Cork, Irlanda. Visa STAMP 4 (EU-FAM) — habilitado para trabajar sin necesidad de patrocinio.',
       location: 'ubicación: Cork, Irlanda',
       focus: 'enfoque: .NET / React',
       status: 'estado: buscando trabajo',
