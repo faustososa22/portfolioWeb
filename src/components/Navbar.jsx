@@ -14,7 +14,7 @@ function Navbar({ t, theme, toggleTheme, lang, toggleLang }) {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navMenu">
-          <ul className="navbar-nav ms-auto align-items-center">
+          <ul className="navbar-nav ms-auto">
             <li className="nav-item"><a className="nav-link" href="#about">{t.nav.about}</a></li>
             <li className="nav-item"><a className="nav-link" href="#skills">{t.nav.skills}</a></li>
             <li className="nav-item"><a className="nav-link" href="#projects">{t.nav.projects}</a></li>

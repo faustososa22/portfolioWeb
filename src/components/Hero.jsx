@@ -19,13 +19,6 @@ function Hero({ t }) {
   const [deleting, setDeleting] = useState(false)
 
   useEffect(() => {
-    setText('')
-    setCharIndex(0)
-    setDeleting(false)
-    setPhraseIndex(0)
-  }, [phrases])
-
-  useEffect(() => {
     const current = phrases[phraseIndex % phrases.length]
     const speed = deleting ? 50 : 100
 
@@ -62,8 +55,8 @@ function Hero({ t }) {
             </h2>
             <p className="hero-desc">{highlight(t.hero.desc)}</p>
             <div className="hero-buttons">
-              <a href="#projects" className="btn btn-accent me-3">{t.hero.viewProjects}</a>
-              <a href="#contact" className="btn btn-outline-accent me-3">{t.hero.contactMe}</a>
+              <a href="#projects" className="btn btn-accent">{t.hero.viewProjects}</a>
+              <a href="#contact" className="btn btn-outline-accent">{t.hero.contactMe}</a>
               <a href="/Fausto_Sosa_CV.pdf" download className="btn btn-outline-accent">{t.hero.downloadCV}</a>
             </div>
           </div>
